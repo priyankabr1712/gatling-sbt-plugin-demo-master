@@ -31,7 +31,7 @@ object Headers {
 
   val headers_495 = Map(
     "Accept" -> "application/font-woff2;q=1.0,application/font-woff;q=0.9,*/*;q=0.8",
-    "Origin" -> "https://accstorefront.c4f4c56-foodservi1-s1-public.model-t.cc.commerce.ondemand.com",
+    "Origin" -> "https://www.fsxmarket.com/",
     "Pragma" -> "no-cache",
     "TE" -> "Trailers")
 
@@ -63,6 +63,6 @@ object Headers {
 
   val uri1 = "https://ssl.google-analytics.com"
   val uri2 = "https://fonts.gstatic.com"
-  val uri3 = "https://accstorefront.c4f4c56-foodservi1-s1-public.model-t.cc.commerce.ondemand.com"
+  val uri3 = "https://www.fsxmarket.com/"
   val uri4 = "https://apitest.authorize.net/xml/v1/request.api"
 }

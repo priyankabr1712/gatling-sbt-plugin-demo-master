@@ -6,7 +6,7 @@ import io.gatling.core.Predef._
 
 object PDP_AddCart {
   val pdp =  exec(http("PDP")
-    .get(uri3 + "${s1}/FSX/${pdpurl}/${pname}")
+    .get(uri3 + "/FSX/${prodpdp}")
     .headers(headers_12)
     .check(regex("""<input type="hidden" name="CSRFToken" value="([^"]*)" />""").saveAs("requestVerificationToken")))
     .pause(2)

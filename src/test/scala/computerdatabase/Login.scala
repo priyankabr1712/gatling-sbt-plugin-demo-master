@@ -11,7 +11,7 @@ object Login {
             .get(uri3 + "/")
             .headers(headers_12)
             .check(regex("""<input type="hidden" name="CSRFToken" value="([^"]*)" />""").saveAs("requestVerificationToken")))
-    .pause(2)
+    .pause(7)
 
 
   val credentialsfeeder = csv("Credentials.csv").circular

@@ -47,9 +47,10 @@ class CLP_PDP_Cart extends Simulation {
     .feed(miraklfeeder)
     .feed(freeshippingfeeder)
     .feed(credentialsfeeder)
+    .feed(profsxlistfeeder)
 
-    .exec(Login hp,
-                    Login lp)
+    .exec(Login hp, CLP barclp)
+  // Login lp)
 
   val scn2 = scenario("S2")
 
@@ -68,16 +69,13 @@ class CLP_PDP_Cart extends Simulation {
     .feed(profsxlistfeeder)
 
     .exec(Login hp,
-      Login lp,
-      CLP barclp)
+      PDP_AddCart pdp)
 
 
-
-  setUp(scn1.inject(rampUsers(1) during (2 seconds)),
-    scn2.inject(rampUsers(users=1) during (2 seconds))).protocols(httpProtocol)
+  setUp(scn1.inject(rampUsers(4) during (15 seconds)),
+    scn2.inject(rampUsers(users = 4) during (15 seconds))).protocols(httpProtocol)
 
 }
-
 
 
 
