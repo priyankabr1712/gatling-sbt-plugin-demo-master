@@ -29,7 +29,7 @@ class CLP_PDP_Cart extends Simulation {
   val echofeeder = csv("EchoShipping.csv").circular
   val miraklfeeder = csv("MiraklShipping.csv").circular
   val freeshippingfeeder = csv("FreeShipping.csv").circular
-
+  val profsxlistfeeder = csv("pro-fsxlist.csv").circular
 
   val credentialsfeeder = csv("Credentials.csv").circular
 
@@ -51,9 +51,30 @@ class CLP_PDP_Cart extends Simulation {
     .exec(Login hp,
                     Login lp)
 
+  val scn2 = scenario("S2")
+
+    .exec(flushHttpCache)
+    .exec(flushSessionCookies)
+    .exec(flushCookieJar)
 
 
-  setUp(scn1.inject(rampUsers(1) during (2 seconds))).protocols(httpProtocol)
+    .feed(urlfeeder)
+    .feed(userfeeder)
+    .feed(upsfeeder)
+    .feed(echofeeder)
+    .feed(miraklfeeder)
+    .feed(freeshippingfeeder)
+    .feed(credentialsfeeder)
+    .feed(profsxlistfeeder)
+
+    .exec(Login hp,
+      Login lp,
+      CLP barclp)
+
+
+
+  setUp(scn1.inject(rampUsers(1) during (2 seconds)),
+    scn2.inject(rampUsers(users=1) during (2 seconds))).protocols(httpProtocol)
 
 }
 

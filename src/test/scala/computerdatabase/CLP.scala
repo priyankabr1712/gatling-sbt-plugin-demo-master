@@ -6,7 +6,7 @@ import io.gatling.core.Predef._
 
 object CLP {
   val barclp = exec(http("CLP")
-    .get(uri3 + "${s1}/FSX/${category}")
+    .get(uri3 + "/FSX/${category}")
     .headers(headers_12))
     .pause(2)
 
